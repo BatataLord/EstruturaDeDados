@@ -1,0 +1,99 @@
+import javax.swing.JOptionPane;
+
+public class JOptionPaneExample {
+    public static void main(String[] args) {
+        // Show a simple message dialog
+        JOptionPane.showMessageDialog(null, "Hello, this is a message!");
+
+        // Show an input dialog and get user input
+        String userInput = JOptionPane.showInputDialog("Enter something:");
+
+        // Show a confirmation dialog
+        int result = JOptionPane.showConfirmDialog(null, "Do you want to proceed?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+        // Check the user's choice
+        if (result == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "You clicked Yes!");
+        } else {
+            JOptionPane.showMessageDialog(null, "You clicked No or closed the dialog.");
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class MaiorNumeroPar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Quantos números deseja inserir? ");
+        int quantidadeNumeros = scanner.nextInt();
+
+        int maiorNumeroPar = Integer.MIN_VALUE;
+
+        for (int i = 0; i < quantidadeNumeros; i++) {
+            System.out.print("Insira o número " + (i + 1) + ": ");
+            int numero = scanner.nextInt();
+
+            if (numero % 2 == 0 && numero > maiorNumeroPar) {
+                maiorNumeroPar = numero;
+            }
+        }
+
+        if (maiorNumeroPar != Integer.MIN_VALUE) {
+            System.out.println("O maior número par inserido é: " + maiorNumeroPar);
+        } else {
+            System.out.println("Nenhum número par foi inserido.");
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class ProximoNumeroPar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número: ");
+        int numero = scanner.nextInt();
+
+        int proximoNumeroPar = encontrarProximoNumeroPar(numero);
+
+        System.out.println("O próximo número par após " + numero + " é: " + proximoNumeroPar);
+
+        scanner.close();
+    }
+
+    private static int encontrarProximoNumeroPar(int numero) {
+        if (numero % 2 == 0) {
+            // Se o número fornecido já é par, incrementa por 2 para obter o próximo número par.
+            return numero + 2;
+        } else {
+            // Se o número fornecido é ímpar, incrementa por 1 para torná-lo par e, em seguida, incrementa por 2.
+            return numero + 1 + 1;
+        }
+    }
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExemploLista {
+    public static void main(String[] args) {
+        // Criando uma lista simples (ArrayList)
+        List<String> lista = new ArrayList<>();
+
+        // Adicionando elementos à lista
+        lista.add("Maçã");
+        lista.add("Banana");
+        lista.add("Laranja");
+
+        // Usando um loop for para iterar sobre a lista
+        System.out.println("Elementos da lista:");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
+    }
+}
